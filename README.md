@@ -26,19 +26,19 @@ const template = `
 
     <h1>Hello, {{ name }}!</h1>
 
-    {{#if isAdmin}}
+    {{if isAdmin}}
 
         <p>Welcome, admin!</p>
 
-    {{/if}}
+    {{endif}}
 
     <ul>
 
-        {{#each items}}
+        {{foreach items}}
 
             <li>{{ name }}</li>
 
-        {{/each}}
+        {{endforeach}}
 
     </ul>
 
@@ -68,7 +68,7 @@ console.log(renderedTemplate);
 
 ```
 
-The `render` method replaces placeholders ({{ key }}) in the template with the corresponding values from the data object. It also supports conditional rendering using `{{#if key}}...{{/if}}` and iteration over arrays using `{{#each key}}...{{/each}}` syntax.
+The `render` method replaces placeholders ({{ key }}) in the template with the corresponding values from the data object. It also supports conditional rendering using `{{if key}}...{{endif}}` and iteration over arrays using `{{foreach key}}...{{endforeach}}` syntax.
 
 ### Template Syntax
 
@@ -78,11 +78,11 @@ Placeholders in the template are identified using double curly braces (`{{ }}`).
 
 Conditional Rendering
 
-You can use the `{{#if key}}...{{/if}}` syntax for conditional rendering. The content inside the `{{#if}}` and `{{/if}}` tags will only be rendered if the value of key is truthy. Otherwise, it will be omitted from the final output.
+You can use the `{{if key}}...{{endif}}` syntax for conditional rendering. The content inside the `{{if}}` and `{{endif}}` tags will only be rendered if the value of key is truthy. Otherwise, it will be omitted from the final output. You can also run multiple conditions.
 
 Array Iteration
 
-To iterate over an array in the data object, use the `{{#each key}}...{{/each}}` syntax. The content inside the `{{#each}}` and `{{/each}}` tags will be repeated for each item in the array. You can access the properties of each item using the dot notation, e.g., `{{ name }}`.
+To iterate over an array in the data object, use the `{{foreach key}}...{{endforeach}}` syntax. The content inside the `{{foreach}}` and `{{endforeach}}` tags will be repeated for each item in the array. You can access the properties of each item using the dot notation, e.g., `{{ name }}`. You can also run multiple loops.
 
 ## Authors
 
